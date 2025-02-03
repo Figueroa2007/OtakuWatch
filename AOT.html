@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtakuWatch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            animation: backgroundColorChange 10s infinite alternate;
+        }
+
+        header {
+            background-color: #003366;
+            color: #e0e0e0;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-bottom: 4px solid #1e90ff;
+            animation: fadeIn 2s ease-in;
+        }
+        a.Title-header { 
+            margin: 0;
+            font-size: 3em;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #ffffff; 
+            text-decoration: none;
+            letter-spacing: 1px; 
+            display: inline-block;
+        }
+
+        a.Title-header:hover {
+            color: #1e90ff;
+        }
+        
+        .header-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        header a.header-button {
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 8px 15px;
+            background-color: #1e90ff;
+            color: #121212;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        header a.header-button:hover {
+            background-color: #003366;
+            transform: scale(1.1);
+        }
+        .search-container {
+            margin: 20px auto;
+            max-width: 600px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #1e90ff;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .search-container button {
+	        padding: 10px 20px;
+	        background-color: #1e90ff;
+    	    border: none;
+    	    border-radius: 5px;
+    	    color: #121212;
+    	    cursor: pointer;
+    	    transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .search-container button:hover {
+	        background-color: #003366;
+	        transform: scale(1.05);
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            height: 70vh;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px auto; 
+            animation: zoomIn 1s ease;
+        }
+
+        .video-options {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+        }
+
+        .video-option {
+            font-size: 1.2em;
+            color: #e0e0e0;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 2px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .video-option:hover {
+            transform: scale(1.05);
+            border-color: #1e90ff;
+        }
+
+        .main-video {
+            flex: 2;
+            position: relative;
+        }
+
+        .main-video video {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            border: 2px solid #1e90ff;
+        }
+
+        .main-video-title {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5em;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 15px;
+            border-radius: 10px;
+            color: #e0e0e0;
+        }
+
+        footer {
+            background-color: #003366;
+            color: #e0e0e0;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+            border-top: 4px solid #1e90ff;
+            animation: fadeIn 2s ease-in;
+            margin-top: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes backgroundColorChange {
+            from {
+                background-color: #121212;
+            }
+
+            to {
+                background-color: #1e1e1e;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="Homepage.html" class="Title-header">OtakuWatch</a>
+        <div class="header-nav">
+            <a href="Homepage.html" class="header-button">Home</a>
+            <a href="Anime.html" class="header-button">Anime</a>
+            <a href="TVSeries.html" class="header-button">TV Series</a>
+            <a href="Movies.html" class="header-button">Movies</a>
+            <a href="MostPopular.html" class="header-button">Most Popular</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search TV Series...">
+            <button id="search-button">Search</button>
+        </div>
+    </header>
+    <h3>Attack On Titan<h3>
+    <div class="video-container">
+        <div class="video-options">
+            <div class="video-option" onclick="playVideo('AOT1.mp4', 'Video 1 Title')">EP1</div>
+            <div class="video-option" onclick="playVideo('AOT2.mp4', 'Video 2 Title')">EP2</div>
+        </div>
+
+        <div class="main-video">
+            <div class="main-video-title" id="videoTitle">Main Video</div>
+            <video id="mainVideo" src="AOT1.mp4" controls></video>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 OtakuWatch. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        
+document.querySelectorAll('.show-more-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const sectionId = this.previousElementSibling.id;
+                    toggleCards(sectionId, this);
+                });
+            });
+
+            document.getElementById('search-button').addEventListener('click', function() {
+                const query = document.getElementById('search-input').value.trim();
+                if (query) {
+                    window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+                }
+            });
+
+            document.getElementById('search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('search-button').click();
+                }
+            });
+        
+        function playVideo(videoSrc, title) {
+            const mainVideo = document.getElementById('mainVideo');
+            const videoTitle = document.getElementById('videoTitle');
+
+            mainVideo.src = videoSrc;
+            videoTitle.textContent = title;
+            mainVideo.play();
+        }
+    </script>
+</body>
+
+</html>
